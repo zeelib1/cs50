@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+
+<form action="/quote" method='post' style= "visibility: {{hide_form}}">
+
+    <div class = "form-group">
+        <input type="text" autocomplete="off" autofocus class = "form-control" name="symbol" placeholder="Symbol">
+    </div>
+
+    <button onclick="toggleForm()" id="quote" class="btn btn-primary" type="submit">Quote</button>
+
+</form>
+<p style="visibility:{{show}}">A share of {{name}} [{{symbol}}] costs ${{price}}</p>
+
+{% endblock %}
+
+
+
+

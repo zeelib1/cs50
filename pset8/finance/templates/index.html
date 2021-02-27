@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<table class = "table table-striped">
+    <thead class = .thead-dark>
+        <tr class = "table-info" style='font-weight:bold;'>
+            <td>Symbol</td>
+            <td>Name</td>
+            <td>Shares</td>
+            <td>Price</td>
+            <td>TOTAL</td>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan ="4"></td>
+            <td><span style="font-weight:bold">TOTAL:</span> ${{'%0.2f'|format(grand_total)}}</td>
+        </tr>
+    </tfoot>
+
+    <tbody>
+         {% for item in holdings%}
+        <tr>
+
+            <td>{{item['symbol']}}</td>
+            <td>{{item['name']}}</td>
+            <td>{{item['shares']}}</td>
+            <td>${{ '%0.2f'|format(item['price'])}}</td>
+            <td>${{ '%0.2f'|format(item['total'])}}</td>
+        </tr>
+        {%endfor%}
+        <tr>
+            <td colspan="4"></td>
+            <td> <span style="font-weight:bold;">CASH BALANCE: </span> ${{'%0.2f'|format(cash)}}</td>
+        </tr>
+    </tbody>
+
+
+</table>
+
+
+{% endblock %}
